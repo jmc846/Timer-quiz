@@ -5,23 +5,28 @@
   }
 
 
+#question {
 
+  height: 450px;
+  width: 400px;
+  border-radius: 75px;
+}
 
 
 body {
   
-    background-image: url(https://cdn.pixabay.com/photo/2015/06/08/15/11/typewriter-801921_1280.jpg);
-    background-attachment: scroll; 
-    background-size: cover;  */
+   background-image: url(https://cdn.pixabay.com/photo/2015/06/08/15/11/typewriter-801921_1280.jpg);
+    background-attachment: fixed; 
+    background-size: cover;  
     
-     */
-}
+     
+} 
 
 .container {
     display: block;
     margin: 30%;    
     height: 400px;
-    width: 80%;
+    width: 650px;
     color: green;
     opacity: 75%;
     padding: 25%;
@@ -35,26 +40,27 @@ body {
 
 .card {
     background-color: hsl(0, 0%, 100%);
-    border-radius: 5px;
-    border-width: 1px;
+    border-radius: 150px;
+    border-width: 15px;
+    height: 650px;
     box-shadow: rgba(194, 6, 6, 0.767) 0px 2px 8px 0px;
     color: hsl(142, 89%, 22%);
     font-size: 18px;
-    margin: 0 auto;
+    margin: 25 px;
     max-width: 800px;
     padding: 30px 40px;
   }
   
   .card-header::after {
     content: " ";
-    display: block;
+    display:initial;
     width: 100%;
-    background: #e7e9eb;
+    background: #e7ebe9;
     height: 2px;
   }
   
   .card-body {
-    min-height: 100px;
+    min-height: 200px;
   }
   
   .card-footer {
