@@ -1,4 +1,8 @@
-//   // The array of questions for our quiz game.
+// 
+// var BeginEl = document.querySelector("#Begin");
+// var scoreEl = document.querySelector("#score");
+
+// The array of questions for our quiz game.
 //   var questions = [
 //     { q: "Mustang Shelby debuted in 1959.", a: "t" },
 //     { q: "There are 365 days in a year.", a: "t" },
@@ -6,7 +10,11 @@
 //     { q: "The Declaration of Independence was created in 1745.", a: "f" },
 //     { q: "Bananas are vegetables.", a: "f" }
 //   ];
-
+// WHEN I click the start button
+// BeginEl.addEventListener("click", function(event) {
+//     event.preventDefault();
+  
+//     console.log(event);
 //   // We start the game with a score of 0.
 //   var score = 0;
 
