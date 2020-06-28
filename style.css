@@ -9,19 +9,14 @@
 
 
 body {
-/*   
+  
    background-image: url(https://cdn.pixabay.com/photo/2015/06/08/15/11/typewriter-801921_1280.jpg);
     background-attachment: fixed; 
-    background-size: cover;   */
+    background-size: cover;  
     
-     
-} 
-.timer {
+}  
+ 
 
-  display: ruby-base-container;
-  font-size: 250px;
-
-}
 
 
 .container {
@@ -60,9 +55,17 @@ body {
     background: #e7ebe9;
     height: 2px;
   }
+
+  #timer {
+
+    width: 8px ;
+    font-size: 25px;
+  
+  }
   
   .card-body {
     min-height: 200px;
+    padding:20px ;
   }
 
   #question {
