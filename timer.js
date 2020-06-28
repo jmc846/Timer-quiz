@@ -1,66 +1,24 @@
-// 
-// var BeginEl = document.querySelector("#Begin");
-// var scoreEl = document.querySelector("#score");
 
-// The array of questions for our quiz game.
-//   var questions = [
-//     { q: "Mustang Shelby debuted in 1959.", a: "t" },
-//     { q: "There are 365 days in a year.", a: "t" },
-//     { q: "There are 42 ounces in a pound.", a: "f" },
-//     { q: "The Declaration of Independence was created in 1745.", a: "f" },
-//     { q: "Bananas are vegetables.", a: "f" }
-//   ];
-// WHEN I click the start button
-// BeginEl.addEventListener("click", function(event) {
-//     event.preventDefault();
-  
-//     console.log(event);
-//   // We start the game with a score of 0.
-//   var score = 0;
+var counter = 0
+var startTimer = select('#timer');
+timer.html('0')
 
-//   // Loop over every question object
-//   for (var i = 0; i < questions.length; i++) {
-//     // Display current question to user and ask OK/Cancel
-//     var answer = confirm(questions[i].q);
+function timeIt(){
+counter ++;
+timer.html(counter);
 
-//     // Compare answers
-//     if ((answer === true && questions[i].a === "t") ||
-//       (answer === false && questions[i].a === "f")) {
-//       // Increase score
-//       score++;
-//       alert("Correct!");
-//     }
-//     else {
-//       alert("Wrong!");
-//     }
-//   }
-
-//   // Show total at end
-//   alert("You got " + score + "/" + questions.length);
-
-
-  var statusSpan = document.querySelector("#status");
-var statusToggle = document.querySelector("#status-toggle");
-var playButton = document.querySelector("#play");
-var pauseButton = document.querySelector("#pause");
-var stopButton = document.querySelector("#stop");
-var minutesDisplay = document.querySelector("#minutes");
-var secondsDisplay = document.querySelector("#seconds");
-var workMinutesInput = document.querySelector("#work-minutes");
-var restMinutesInput = document.querySelector("#rest-minutes");
-var inputs = document.querySelector(".inputs")
+}
+setInterval(timeIt, 30000);
+var minutesDisplay = document.getElementById("minutes");
+var secondsDisplay = document.getElementById("seconds");
+var workMinutesInput = document.getElementById("work-minutes");
+var restMinutesInput = document.getElementById("rest-minutes");
+var inputs = document.getElementById(".inputs")
 
 var totalSeconds = 0;
 var secondsElapsed = 0;
-var status = "Working";
-var interval;
-
-/* One thing to distinguish here is that not all functions are created equal.
-   Some functions just change settings, some functions just call other functions,
-   some functions just format strings or numbers, etc. */
-
-// This launches the app by calling setTime() and renderTime()
-getTimePreferences();
+var score
+var questions
 
 // These two functions are just for making sure the numbers look nice for the html elements
 function getFormattedMinutes() {
@@ -95,9 +53,9 @@ function getFormattedSeconds() {
 }
 
 /* This function retrieves the values from the html input elements; Sort of
-   getting run in the background, it sets the totalSeconds variable which
-   is used in getFormattedMinutes/Seconds() and the renderTime() function.
-   It essentially resets our timer */
+getting run in the background, it sets the totalSeconds variable which
+is used in getFormattedMinutes/Seconds() and the renderTime() function.
+It essentially resets our timer */
 function setTime() {
   var minutes;
 
@@ -117,7 +75,7 @@ function renderTime() {
   minutesDisplay.textContent = getFormattedMinutes();
   secondsDisplay.textContent = getFormattedSeconds();
 
- // ..and then checks to see if the time has run out
+  // ..and then checks to see if the time has run out
   if (secondsElapsed >= totalSeconds) {
     if (status === "Working") {
       alert("Time for a break!");
@@ -138,85 +96,91 @@ function startTimer() {
   if (totalSeconds > 0) {
     /* The "interval" variable here using "setInterval()" begins the recurring increment of the
        secondsElapsed variable which is used to check if the time is up */
-      interval = setInterval(function() {
-        secondsElapsed++;
+    interval = setInterval(function () {
+      secondsElapsed++;
 
-        // So renderTime() is called here once every second.
-        renderTime();
-      }, 1000);
+      // So renderTime() is called here once every second.
+      renderTime();
+    }, 1000);
   } else {
     alert("Minutes of work/rest must be greater than 0.")
   }
+  var BeginEl = document.querySelector("#Begin");
+  var scoreEl = document.querySelector("#score");
+  BeginEl.addEventListener('click', startTimer);
+
+  // The array of questions for our quiz game.
+  var questions = [
+    {
+      prompt: "Mustang Shelby debuted in what Year?",
+      "a": "1968"
+     "b": "1998"
+     "c": "1940"
+     "d": "1965"
+     correct: "d"
+
+     prompt: "Winston Churchill was a leader in what country ?",
+      "a": "Germany"
+     "b": "Britian"
+     "c": "Russia"
+     "d": "UAE"
+     correct: "b",
+
+      prompt: "Denmark Vesey was a Slave in what state ?",
+      "a": "South Carolina"
+     "b": "Texas"
+     "c": "Tennesee"
+     "d": "Bermuda"
+    correct: "a"
+
+    prompt: "Rev. Joseph Simmons is part on what legendary musical group?",
+      `       `"a": "Milli Vanilli"
+               "b": "The Wu-tang"
+               "c": "RUN DMC"
+               "d": "Crush Groove"
+       correct: "c"
+
+  prompt: "Andre Benjamin is part on what legendary musical group?",
+               "a": "OutKast"
+               "b": "The Backstreet boys"
+               "c": "Hootie and the Blowfish"
+               "d": "Nickelback"
+       correct: "a"
+
+  prompt: "This 80's show featured a talking car?",
+    "a": "Walker Texas Ranger"
+               "b": "The Renegade"
+               "c": "C.H.I.P.S."
+               "d": "Night Rider"
+       "correct": "c"
+
+  ]
 }
+WHEN I click the start button
+BeginEl.addEventListener("click", function (event) {
+  event.preventDefault();
 
-/* This function stops the setInterval() set in startTimer but does not
-   reset the secondsElapsed variable and does not reset the time by calling "setTime()" */
-function pauseTimer() {
-  clearInterval(interval);
-  renderTime();
-}
+  console.log(event);
+  // We start the game with a score of 0.
+  var score = 0;
 
-/* This function stops the interval and also resets secondsElapsed
-   and calls "setTime()" which effectively reset the timer
-   to the input selections workMinutesInput.value and restMinutesInput.value */
-function stopTimer() {
-  secondsElapsed = 0;
-  setTime();
-  renderTime();
-}
+  // Loop over every question object
+  for (var i = 0; i < questions.length; i++) {
+    // Display current question to user and ask OK/Cancel
+    var answer = prompt(questions[i].prompt);
 
-/* Our timer is fancy enough to handle 2 different settings at once this toggle
-   function basically just specifies which of our 2 timer settings to use. */
-function toggleStatus(event) {
-  var checked = event.target.checked;
-
-  if (checked) {
-    status = "Working";
-  } else {
-    status = "Resting";
+    // Compare answers
+    if ((answer === "correct" && questions[i].a === "right") ||
+      (answer === "!correct" && questions[i].a === "Wrong")) {
+      // Increase score
+      score++;
+      alert("Correct!");
+    }
+    else {
+      alert("Wrong!");
+      timer --;
+    }
   }
 
-  statusSpan.textContent = status;
-
-  secondsElapsed = 0;
-  setTime();
-  renderTime();
-}
-
-function getTimePreferences() {
-  /* Here we check to see if any preferences have
-     been set in the local storage via "setTimePreferences()" */
-  var preferences = JSON.parse(localStorage.getItem("preferences"));
-
-  // If preferences have been set then use any value available
-  if (preferences) {
-    if (preferences.workMinutes) {
-      workMinutesInput.value = preferences.workMinutes;
-    }
-
-    if (preferences.restMinutes) {
-      restMinutesInput.value = preferences.restMinutes;
-    }
-  }
-
-  // This is where the app is really kicked-off, setTime and renderTime are the two main routines.
-  setTime();
-  renderTime();
-}
-
-function setTimePreferences() {
-  localStorage.setItem(
-    "preferences",
-    JSON.stringify({
-      workMinutes: workMinutesInput.value.trim(),
-      restMinutes: restMinutesInput.value.trim()
-    })
-  );
-}
-
-playButton.addEventListener("click", startTimer);
-pauseButton.addEventListener("click", pauseTimer);
-stopButton.addEventListener("click", stopTimer);
-statusToggle.addEventListener("change", toggleStatus);
-inputs.addEventListener("change", setTimePreferences);
-inputs.addEventListener("keyup", setTimePreferences);
+  // Show total at end
+  alert("You got " + score + "/" + questions.length);
