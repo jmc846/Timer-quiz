@@ -1,144 +1,139 @@
-// setInterval(timeIt, 30000);{};
-var secondsDisplay = document.getElementById("seconds");
-var totalSeconds = 0;
-var secondsLeft =  60;
-// var score =  ;
+
+var setInterval = 60000;
+var secondsDisplay = document.querySelector("seconds");
+var answerButton = document.createElement("button")
+var seconds = Math.floor(( (1000 * 60)) / 1000);;
+var secondsLeft = 60;
+var BeginE1 = document.querySelector("#display");
+var scoreE1 = document.querySelector("#score");
+var rightAnswer = ["1965","Britain","South Carolina","RUN DMC","OutKast","Night Rider",]
+document.getElementById("counter").innerHTML =  seconds + "seconds ";
+window.debugVar = questions;
+// var score = parseInt(userAnswer/rightAnswer)
 var questions = [{
-  question: "Mustang Shelby debuted in what Year?",
-  choices:["1968",
-   "1998",
-   "1940",
-   "1965"],
-  answer: "d"
+  "q": "Mustang Shelby debuted in what Year?",
+  a: "1968",
+  b: "1998",
+  c: "1940",
+  d: "1965",
+  rightAnswer: "1965",
+  userAnswer: null,
+
 },
 
-  { question: "Winston Churchill was a leader in what country ?",
-  choices: [ "Germany",
-   "Britain",
-   "Russia",
-   "UAE"],
-  answer: "b"
+{
+  "q": "Winston Churchill was a leader in what country ?",
+  a: "Germany",
+  b: "Britain",
+  c: "Russia",
+  d: "UAE",
+  rightAnswer: "Britain",
+  userAnswer: null,
 },
 
-  { question: "Denmark Vesey was a Slave in what state ?",
-  choices: ["South Carolina",
-  "Texas",
-   "Tennesee",
-   "Bermuda"],
-  answer: "a"
+{
+  "q": "Denmark Vesey was a Slave in what state ?",
+  a: "South Carolina",
+  b: "Texas",
+  c: "Tennesee",
+  d: "Bermuda",
+  rightAnswer: "South Carolina",
+  userAnswer: null,
 },
 
-  { question: "Rev. Joseph Simmons is part on what legendary musical group?",
- choices: [ "Milli Vanilli",
-   "The Wu-tang",
-  "RUN DMC",
-   "Crush Groove"],
-  answer: "c"
+{
+  "q": "Rev. Joseph Simmons is part on what legendary musical group?",
+  a: "Milli Vanilli",
+  b: "The Wu-tang",
+  c: "RUN DMC",
+  d: "Crush Groove",
+  rightAnswer: "RUN DMC",
+  userAnswer: null,
 },
 
- { question: "Andre Benjamin is part on what legendary musical group?",
- choices: [ "OutKast",
-   "The Backstreet boys",
-   "Hootie and the Blowfish",
-   "Nickelback"],
-  answer: "a"
+{
+  "q": "Andre Benjamin is part on what legendary musical group?",
+  a: "OutKast",
+  b: "The Backstreet boys",
+  c: "Hootie and the Blowfish",
+  d: "Nickelback",
+  rightAnswer: "OutKast",
+  userAnswer: null,
 },
 
-  {question: "This 80's show featured a talking car?",
-  choices: [ "Walker Texas Ranger",
-   "The Renegade",
-   "C.H.I.P.S.",
-   "Night Rider"],
-  answer: "c"
+{
+  "q": "This 80's show featured a talking car?",
+  a: "Walker Texas Ranger",
+  b: "The Renegade",
+  c: "C.H.I.P.S.",
+  d: "Night Rider",
+  rightAnswer: "Night Rider",
+  userAnswer: null,
 }];
 
+Begin.addEventListener("click", function (event) {
+  event.preventDefault();
+  console.log("This Works")
 
-var BeginEl = document.querySelector("#display");
-// var scoreEl = document.querySelector("#score");
-// // These two functions the begin button and timer functions 
-// // WHEN I click the start button
-// // BeginEl.addEventListener("click", function (event) {
-// //   event.preventDefault();
-// //   console.log("This Works")
-// // });
-//   // console.log(event);
-//   // We start the game with a score of 0.
-  var score = 0;
-
-  // Loop over every question object
-  for (var i = 0; i < questions.length; i++) {
-
-   var title= document.getElementById("question-title")
-   var answers= document.getElementById("choices")
-    var answerButton=document.createElement("button")
-
-   for (var i =0; i< questions[i].choices.length; i++){
-     console.log(choices[i])
-
-    //  var userAnswer= addEventListener.("click",);   
-
-
-  }
-    // Display current question to user and ask OK/Cancel
-    // var answer = secondsLeft(questions[i].question);
-
-  //   // Compare answers
-  //   // if (answer === "correct" && questions[i].a === "right"){
-  //   //   // Increase score
-  //   //   score++;
-  //   //   alert("Correct!");
-  //   // }
-  //   // else {
-  //   //   alert("Wrong!");
-  //     secondsLeft-= 15;
-  //   }
-  // }
-
-  // // Show total at end
-  // alert("You got " + score + "/" + questions.length)
-
-
-
-function display() {
-  secondsDisplay = (totalSeconds - secondsElapsed)
-  if (userAnswer !== answer) {
-    totalSeconds - 10000
-  }
-}
-function rollQuestions (){
-questions[i].length
+  function rollQuestions() {
+    // console.log(questions);start question display
 };
+  console.log(event);
+  $("#question-container").text(questions.i)
+  for (var i = 0; i < questions.length; i++) {
+    console.log(questions[i].q);
+    var userAnswer = prompt(questions[i].q);
+    if (userAnswer !== rightAnswer) { 
+      seconds --
+      alert("sorry")
+    }
+    console.log(userAnswer);
+    document.getElementById("question-container")
 
 
-if (userAnswer == ""){
-  questions[i]++
-
-}
-//  This function retrieves the values from the html input elements; 
-
-function gameOver(){
-  secondsLeft--;
-  timeEl.textContent = secondsLeft + " seconds left until Quiz over";
-
-  if (secondsLeft === 0) {
-    clearInterval(timerInterval);
-    sendMessage();
-  }
-
-}} 60000;
-$("begin_btn")
-function sendMessage() {
-  timeEl.textContent = "YOU LOSE"
-
-}
+  // };
+  //  Compare answers
+  function Compare() {
+    if (userAnswer === rightAnswer[i] === "right") {
+      //  Increase score
+      score++;
+      alert("Correct!");
 
 
+    }
+    else {
+      alert("Wrong!");
+      secondsLeft -= 15;
+    }
 
-  // clearInterval(interval);
-  // totalSeconds =  
 
+    // // Show total at end
+    alert("You got " + score + "/" + questions.length);
+    function score() { }
+    // console.log(questions[questionIndex]);
 
-  // This function does 2 things. displays the time and checks to see if time is up.
+    // questions.textContent = question;
+    function display() {
+      secondsDisplay = (totalSeconds - secondsElapsed)
+      if (userAnswer !== answer) {
+        totalSeconds - 10000
+      }
+    }
+  };
+
+  //  This function retrieves the values from the html input elements; 
+
+  function gameOver() {
+    secondsLeft--;
+    secondsElapsed.textContent = secondsLeft + " seconds left until Quiz over";
+
+    if (secondsLeft === 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+
+  } 60000;
+// This function does 2 things. displays the time and checks to see if time is up.
   function renderTime() {
     // When renderTime is called it sets the textContent for the timer html...
     secondsDisplay.textContent = getFormattedSeconds();
@@ -158,22 +153,23 @@ function sendMessage() {
   // This function is where the "time" aspect of the timer runs
   // Notice no settings are changed other than to increment the secondsElapsed var
   function startTimer() {
-    setTime(60000);
-
-    // We only want to start the timer if totalSeconds is > 0
-    if (totalSeconds > 0) {
-      /* The "interval" variable here using "setInterval()" begins the recurring increment of the
-         secondsElapsed variable which is used to check if the time is up */
-      interval = setInterval(function () {
-        secondsElapsed++;
-
-        // So renderTime() is called here once every second.
-        renderTime();
-      }, 10000);
-    } else {
-      alert("Seconds left must be greater than 0.")
-    }
+    document.getElementById("").style.display = "block";
+    document.getElementById("begin").style.display = "none";
+    // function to display function, 
+      setTime(60000);
   }
-;
+  // We only want to start the timer if totalSeconds is > 0
+  if (seconds > 60) {
+    /* The "interval" variable here using "setInterval()" begins the recurring increment of the
+       secondsElapsed variable which is used to check if the time is up */
+    interval = setInterval(function () {
+      seconds--;
 
-// localStorage.setItem("miguel", JSON.stringify({ "time-elapsed": "score"}))
+      // So renderTime() is called here once every second.
+      renderTime();
+    }, 60000);
+  } else
+    alert("You lost time.")
+  };
+
+})

@@ -11,17 +11,23 @@
 body {
   
    background-image: url(https://cdn.pixabay.com/photo/2015/06/08/15/11/typewriter-801921_1280.jpg);
-    background-attachment: fixed; 
-    background-size: cover;  
+    background-attachment: scroll; 
+    background-size: scroll;  
     
 }  
- 
 
 
 
 .container {
     display: block;
     
+
+}
+
+.counter{
+height: 100px;
+width: 150px;
+opacity: 20%;
 
 }
 
@@ -51,7 +57,7 @@ body {
 
   #timer {
 
-    width: 8px ;
+    width: 80px ;
     font-size: 25px;
   
   }
