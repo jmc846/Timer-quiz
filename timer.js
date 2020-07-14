@@ -1,4 +1,4 @@
-
+var timeout = setTimeout( clearInterval);
 var setInterval = 60000;
 var secondsDisplay = document.querySelector("seconds");
 var answerButton = document.createElement("button")
