@@ -6,69 +6,73 @@ var answerButton = document.createElement("button")
 var seconds = Math.floor(( (1000 * 60)) / 1000);;
 var secondsLeft = 60;
 var BeginE1 = document.querySelector("#display");
-var userAnswer = document.getElementById("button");
-userAnswer = function (Compare){}
+var userAnswer = document.getElementById("userAnswer");
+var questionShow2 = function(){}
+var questionShow3 = function(){}
+var questionShow4 = function(){}
+var questionShow5 = function(){}
+// var questionShow2 = function(){}
 var scoreE1 = document.querySelector("#score");
 var counter= document.getElementById("counter").innerHTML =  seconds + "seconds ";
 window.debugVar = questions;
 score = parseInt(userAnswer/rightAnswer)
 var questions = [{
-  "q": "Mustang Shelby debuted in what Year?",
-  a: "1968",
-  b: "1998",
-  c: "1940",
-  d: "1965",
+  "q1": "Mustang Shelby debuted in what Year?",
+  a1: "1968,",
+  b1: "1998,",
+  c1: "1940,",
+  d1: "1965,",
   rightAnswer: "1965",
   userAnswer: null,
 
 },
 
 {
-  "q": "Winston Churchill was a leader in what country ?",
-  a: "Germany",
-  b: "Britain",
-  c: "Russia",
-  d: "UAE",
+  "q2": "Winston Churchill was a leader in what country ?",
+  a2: "Germany",
+  b2: "Britain",
+  c2: "Russia",
+  d2: "UAE",
   rightAnswer: "Britain",
   userAnswer: null,
 },
 
 {
-  "q": "Denmark Vesey was a Slave in what state ?",
-  a: "South Carolina",
-  b: "Texas",
-  c: "Tennesee",
-  d: "Bermuda",
+  "q3": "Denmark Vesey was a Slave in what state ?",
+  a3: "South Carolina",
+  b3: "Texas",
+  c3: "Tennesee",
+  d3: "Bermuda",
   rightAnswer: "South Carolina",
   userAnswer: null,
 },
 
 {
-  "q": "Rev. Joseph Simmons is part on what legendary musical group?",
-  a: "Milli Vanilli",
-  b: "The Wu-tang",
-  c: "RUN DMC",
-  d: "Crush Groove",
+  "q4": "Rev. Joseph Simmons is part on what legendary musical group?",
+  a4: "Milli Vanilli",
+  b4: "The Wu-tang",
+  c4: "RUN DMC",
+  d4: "Crush Groove",
   rightAnswer: "RUN DMC",
   userAnswer: null,
 },
 
 {
-  "q": "Andre Benjamin is part on what legendary musical group?",
-  a: "OutKast",
-  b: "The Backstreet boys",
-  c: "Hootie and the Blowfish",
-  d: "Nickelback",
+  "q5": "Andre Benjamin is part on what legendary musical group?",
+  a5: "OutKast",
+  b5: "The Backstreet boys",
+  c5: "Hootie and the Blowfish",
+  d5: "Nickelback",
   rightAnswer: "OutKast",
   userAnswer: null,
 },
 
 {
-  "q": "This 80's show featured a talking car?",
-  a: "Walker Texas Ranger",
-  b: "The Renegade",
-  c: "C.H.I.P.S.",
-  d: "Night Rider",
+  "q6": "This 80's show featured a talking car?",
+  a6: "Walker Texas Ranger",
+  b6: "The Renegade",
+  c6: "C.H.I.P.S.",
+  d6: "Night Rider",
   rightAnswer: "Night Rider",
   userAnswer: null,
 }];
@@ -81,36 +85,52 @@ var rightAnswer = ["1965","Britain","South Carolina","RUN DMC","OutKast","Night 
 //  logic functions
 Begin.addEventListener("click", function (event) {
   
-  
+  console.log("rollQuestions functions rolls after this")
 
-  function rollQuestions() {
+  function rollQuestions() {};
     // console.log(questions);start question display
-};
+
   // console.log(event);
-  $("li").append(questions[i])
+   $("li").append(questions[i])
   for (var i = 0; i < questions.length; i++) {
      console.log(questions[i].q);
 
-     $('li').append(questions[i].q)
-    //  $('li').append(questions[1])
-    //  $('li').append(questions[2])
-    //  $('li').append(questions[3])
-    //  $('li').append(questions[4])
-    //  $('li').append(questions[5])
-    
-    var userAnswer = prompt(questions[i].q);
-    if (userAnswer[i] !== rightAnswer[i]) { 
-      seconds --
-      alert("sorry")
-    }
-    // console.log(userAnswer);
-    document.getElementById("question-container")
+     $('li').append(questions[i].q1);
+     $('li').append(questions[i].a1)
+     $('li').append(questions[i].b1)
+     $('li').append(questions[i].c1)
+     $('li').append(questions[i].d1)
 
+     userAnswer= addEventListener( "click", );
+
+       $('li').append(questions[i].q2);
+     $('li').append(questions[i].a2)
+     $('li').append(questions[i].b2)
+     $('li').append(questions[i].c2)
+     $('li').append(questions[i].d2)
+
+     userAnswer= addEventListener("click" ,);
+
+     
+     $('li').append(questions[i].q3);
+     $('li').append(questions[i].a3)
+     $('li').append(questions[i].b3)
+     $('li').append(questions[i].c3)
+     $('li').append(questions[i].d3)
+
+    // var userAnswer = $('li').append(questions);
+    // if (userAnswer !== rightAnswer) { 
+    //   seconds --
+    //   alert("sorry")
+    // }
+    // console.log(userAnswer);
+    document.getElementById("question-container"),
+ 
 
   // };
   //  Compare answers
   function Compare() {
-    if (userAnswer[i] === rightAnswer[i] === "right") {
+    if (userAnswer === rightAnswer === "right") {
       //  Increase score
       score++;
       alert("Correct!");
@@ -122,7 +142,7 @@ Begin.addEventListener("click", function (event) {
       --secondsLeft ; 15;
     }
 
-
+  
     // // Show total at end
     alert("You got " + score + "/" + questions.length);
     function score() { }
@@ -149,6 +169,7 @@ Begin.addEventListener("click", function (event) {
     }
 
   } 60000;
+
 // This function does 2 things. displays the time and checks to see if time is up.
   function renderTime() {
     // When renderTime is called it sets the textContent for the timer html...
@@ -186,35 +207,12 @@ Begin.addEventListener("click", function (event) {
     }, 60000);
   } else
     alert("You lost time.")
-  };
+  }})
 
-
-  $('#begin').click(function() {
-    $('.results').show();
-    $('.selectedQ').html($('#question').val()); // set value
-    $('.selectedA').html($('.answer:checked').val()); // set value
-    $('.feedback').html(''); // clear text
-    $('#submit').hide();
-    if ($("#question").val() == "1") {
-        if ($(".answer:checked").val() == "A") {
-            $('.feedback').html('This answer is correct.');
-        } else $('.feedback').html('This answer is NOT correct.');
-    } else if ($("#question").val() == "2") {
-        if ($(".answer:checked").val() == "B") {
-            $('.feedback').html('This answer is correct.');
-        } else $('.feedback').html('This answer is NOT correct.');
-    } else $('.feedback').html('Whoops, please make sure you select a question and an answer');
-});
-$('#reset').click(function() {
-	$('#question').val('');
-    $('.answer').prop('checked', false);
-    $('.results').hide();
-    $('#submit').show();
-});
+;
 
 
 
 
 
-
-})
+// })}
