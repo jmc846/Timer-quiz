@@ -1,3 +1,4 @@
+// Global variables
 var timeout = setTimeout( clearInterval);
 var setInterval = 60000;
 var secondsDisplay = document.querySelector("seconds");
@@ -5,11 +6,12 @@ var answerButton = document.createElement("button")
 var seconds = Math.floor(( (1000 * 60)) / 1000);;
 var secondsLeft = 60;
 var BeginE1 = document.querySelector("#display");
+var userAnswer = document.getElementById("button");
+userAnswer = function (Compare){}
 var scoreE1 = document.querySelector("#score");
-var rightAnswer = ["1965","Britain","South Carolina","RUN DMC","OutKast","Night Rider",]
-document.getElementById("counter").innerHTML =  seconds + "seconds ";
+var counter= document.getElementById("counter").innerHTML =  seconds + "seconds ";
 window.debugVar = questions;
-// var score = parseInt(userAnswer/rightAnswer)
+score = parseInt(userAnswer/rightAnswer)
 var questions = [{
   "q": "Mustang Shelby debuted in what Year?",
   a: "1968",
@@ -70,31 +72,45 @@ var questions = [{
   rightAnswer: "Night Rider",
   userAnswer: null,
 }];
+// var choices = [{"c1": a,"1968": b,"1998": c,"1940": d,"1965":} ,{'c2': a,"Germany" : b, "Britain": c, "Russia": d, "UAE":,} { 'c3': a, "South Carolina",
+// b, "Texas": c, "Tennesee": d, "Bermuda":},{ 'c4': a, "Milli Vanilli":b, "The Wu-tang":c, "RUN DMC": d, "Crush Groove":},{'c5': a, "OutKast": b, "The Backstreet boys":
+// c, "Hootie and the Blowfish": d, "Nickelback":},{'c5': a, "Walker Texas Ranger": b, "The Renegade": c, "C.H.I.P.S.":d, "Night Rider":}];
 
+var rightAnswer = ["1965","Britain","South Carolina","RUN DMC","OutKast","Night Rider",];
+
+//  logic functions
 Begin.addEventListener("click", function (event) {
-  event.preventDefault();
-  console.log("This Works")
+  
+  
 
   function rollQuestions() {
     // console.log(questions);start question display
 };
-  console.log(event);
-  $("#question-container").text(questions.i)
+  // console.log(event);
+  $("li").append(questions[i])
   for (var i = 0; i < questions.length; i++) {
-    console.log(questions[i].q);
+     console.log(questions[i].q);
+
+     $('li').append(questions[i].q)
+    //  $('li').append(questions[1])
+    //  $('li').append(questions[2])
+    //  $('li').append(questions[3])
+    //  $('li').append(questions[4])
+    //  $('li').append(questions[5])
+    
     var userAnswer = prompt(questions[i].q);
-    if (userAnswer !== rightAnswer) { 
+    if (userAnswer[i] !== rightAnswer[i]) { 
       seconds --
       alert("sorry")
     }
-    console.log(userAnswer);
+    // console.log(userAnswer);
     document.getElementById("question-container")
 
 
   // };
   //  Compare answers
   function Compare() {
-    if (userAnswer === rightAnswer[i] === "right") {
+    if (userAnswer[i] === rightAnswer[i] === "right") {
       //  Increase score
       score++;
       alert("Correct!");
@@ -103,7 +119,7 @@ Begin.addEventListener("click", function (event) {
     }
     else {
       alert("Wrong!");
-      secondsLeft -= 15;
+      --secondsLeft ; 15;
     }
 
 
@@ -153,8 +169,8 @@ Begin.addEventListener("click", function (event) {
   // This function is where the "time" aspect of the timer runs
   // Notice no settings are changed other than to increment the secondsElapsed var
   function startTimer() {
-    document.getElementById("").style.display = "block";
-    document.getElementById("begin").style.display = "none";
+    document.getElementById("#counter").style.display = "block";
+    document.getElementById("#begin").style.display = "none";
     // function to display function, 
       setTime(60000);
   }
@@ -171,5 +187,34 @@ Begin.addEventListener("click", function (event) {
   } else
     alert("You lost time.")
   };
+
+
+  $('#begin').click(function() {
+    $('.results').show();
+    $('.selectedQ').html($('#question').val()); // set value
+    $('.selectedA').html($('.answer:checked').val()); // set value
+    $('.feedback').html(''); // clear text
+    $('#submit').hide();
+    if ($("#question").val() == "1") {
+        if ($(".answer:checked").val() == "A") {
+            $('.feedback').html('This answer is correct.');
+        } else $('.feedback').html('This answer is NOT correct.');
+    } else if ($("#question").val() == "2") {
+        if ($(".answer:checked").val() == "B") {
+            $('.feedback').html('This answer is correct.');
+        } else $('.feedback').html('This answer is NOT correct.');
+    } else $('.feedback').html('Whoops, please make sure you select a question and an answer');
+});
+$('#reset').click(function() {
+	$('#question').val('');
+    $('.answer').prop('checked', false);
+    $('.results').hide();
+    $('#submit').show();
+});
+
+
+
+
+
 
 })

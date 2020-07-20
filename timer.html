@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -17,25 +17,55 @@
             <div class="card">
                 <div class="card-header">
                     <h2>TEST YOUR KNOWLEDGE</h2>
-                    <h1>Timer <span id="seconds-left"></span></h1>
-                   
-                    
+                    <h1><span id="seconds-left"></span></h1>
+
+
                     <p id="timer"></p>
-                    <div id= "counter"></div>
+                    <div id="counter"></div>
 
 
-                    <div class="card-body"> 
-                        <div id="question-container" class="display"> 
-                            
-                     <div id= "question-title"></div>
+                    <div class="card-body">
+                        <div id="question-container" class="display">
 
-                     <div id="choices"></div>
-                     <button id="Begin" class="btn">Begin-Quiz</button>
-                            <button id="A" class= "A-btn">Option A</button>
-                            <button id="B" class= "A-btn">Option B</button>
-                            <button id="C" class= "A-btn">Option C</button>
-                            <button id="D" class= "A-btn">Option D</button>
+                            <div id="question-title"></div>
 
+                            <div id="choices"></div>
+                            <button id="Begin" class="btn">Begin-Quiz</button>
+                            <ul>
+                                <li></li>
+                              
+
+
+
+                            </ul>
+                            <button id="A" class="A-btn">Option A</button>
+                            <button id="B" class="A-btn">Option B</button>
+                            <button id="C" class="A-btn">Option C</button>
+                            <button id="D" class="A-btn">Option D</button>
+                            <form method="post">
+                                <!-- <select name="question" id="question">
+                                  <option value="select">Select</option>
+                                  <option value="1">1</option>
+                                  <!-- <option value="2">2</option> -->
+                                </select> -->
+
+                                                               <br />
+                                <input type="radio" name="answer" value="A">A</input>
+                                <br />
+                                <input type="radio" name="answer" value="B">B</input>
+                                <br />
+                                <input type="radio" name="answer" value="C">C</input>
+                                <br />
+                                <input type="radio" name="answer" value="D">D</input>
+                                <br />
+                                <input type="radio" name="answer" value="E">E</input>
+                                <br />
+                                <input type="submit" value="Submit" id="submit" />
+                              </form>
+                              <div id="q1correct" style="display:none">question 1 correct</div>
+                              <div id="q1incorrect" style="display:none">question 1 incorrect</div>
+                              <div id="whoops" style="display:none">something went wrong</div>
+                              
 
 
 
@@ -48,22 +78,22 @@
 
 
                     </div>
-                                                <div class="card-footer"> </div>
-                                                    <button id="SCORE" class="btn">Generate SCORE</button>
-                                                </div>
-                                            
-                                        
-
-                                    
-
-                                
+                    <div class="card-footer"> </div>
+                    <button id="SCORE" class="btn">Generate SCORE</button>
+                </div>
 
 
 
 
 
 
-                                <Script src="./timer.js"></script>
+
+
+
+
+
+
+                <Script src="./timer.js"></script>
 </body>
 
 </html>
