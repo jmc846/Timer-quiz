@@ -109,31 +109,39 @@ console.log("HEY THERE I WORK");
   c.innerHTML = questions[currentQuestionIndex].c
   d.innerHTML = questions[currentQuestionIndex].d
 } 
-
-  
-  
-  //you'll have to do something similiar with each answer.
+ 
+  //
 
 
   //add a to the dom..
 questionTitle.append = questions[currentQuestionIndex].q ;
-  a.append = questions[currentQuestionIndex].a
-  b.append = questions[currentQuestionIndex].b
-  c.append = questions[currentQuestionIndex].c
-  d.append = questions[currentQuestionIndex].d
-  ///add b to the dom.
+begin.addEventListener('click', () => { displayCurrentQuestion('q') })
+
+//   a.append = questions[currentQuestionIndex].a
+//  $('.userAnswer').addEventListener('click', () => { checkAnswer('a') })
+
+  // // userAnswer.addEventListener(
+  // b.append = questions[currentQuestionIndex].b
+  // userAnswer.addEventListener('click', () => { checkAnswer('b') })
+
+  // c.append = questions[currentQuestionIndex].c
+  // userAnswer.addEventListener('click', () => { checkAnswer('c') })
+
+  // d.append = questions[currentQuestionIndex].d
+  // userAnswer.addEventListener('click', () => { checkAnswer('d') })
+  // ///add b to the dom.
 
   displayCurrentQuestion()
 function checkAnswer(userAnswer) {
   //compare user answer to current question right answer.
   if (userAnswer === questions[currentQuestionIndex].rightAnswer);
-  correctAnswerCount ++;
-  currentQuestionIndex ++;
+  correctAnswerCount ++
+  currentQuestionIndex ++
 
-  elseif(userAnswer !== currentQuestionIndex.rightAnswer);
-  correctAnswerCount ;
-  currentQuestionIndex ++;
-  setInterval(updateTimer, 4000);
+  //   if (userAnswer !== currentQuestionIndex.rightAnswer);
+  // correctAnswerCount 
+  // currentQuestionIndex ++
+  // setInterval(updateTimer, 4000);
 
 
   
@@ -141,43 +149,28 @@ function checkAnswer(userAnswer) {
   correctAnswerCount ++;
   //increment currentQuestionIndex by 1
   //call display currentQuestion
-  
-
-
-begin.addEventListener('click', () => { displayCurrentQuestion('q') })
-
-
-a.addEventListener('click', () => { checkAnswer('a') })
-
-
-b.addEventListener('click', () => { checkAnswer('b') })
-
-
-c.addEventListener('click', () => { checkAnswer('c') })
-
-
-d.addEventListener('click', () => { checkAnswer('d') })
-// do this for b, c, d
-
 }
+  checkAnswer();
+
+// begin.addEventListener('click', () => { displayCurrentQuestion('q') })
 
 
-//  logic functions
-// Begin.addEventListener("click", function (event) {
+// a.addEventListener('click', () => { checkAnswer('a') })
 
-//   console.log("rollQuestions functions rolls after this")
 
-//   function rollQuestions() { };
-//   // console.log(questions);start question display
+// b.addEventListener('click', () => { checkAnswer('b') })
 
-//   // console.log(event);
-//   $("li").append(questions[i])
-//   for (var i = 0; i < questions.length; i++) {
-//     console.log(questions[i].q);
 
-//     $('li').append(questions[i].q1);
-//     $('li').append(questions[i].a1);
-//   }})
+// c.addEventListener('click', () => { checkAnswer('c') })
+
+
+// d.addEventListener('click', () => { checkAnswer('d') })
+// // 
+
+
+
+
+
  
 
 
