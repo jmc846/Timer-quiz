@@ -1,218 +1,185 @@
 // Global variables
-var timeout = setTimeout( clearInterval);
-var setInterval = 60000;
-var secondsDisplay = document.querySelector("seconds");
-var answerButton = document.createElement("button")
-var seconds = Math.floor(( (1000 * 60)) / 1000);;
-var secondsLeft = 60;
-var BeginE1 = document.querySelector("#display");
-var userAnswer = document.getElementById("userAnswer");
-var questionShow2 = function(){}
-var questionShow3 = function(){}
-var questionShow4 = function(){}
-var questionShow5 = function(){}
-// var questionShow2 = function(){}
-var scoreE1 = document.querySelector("#score");
-var counter= document.getElementById("counter").innerHTML =  seconds + "seconds ";
-window.debugVar = questions;
-score = parseInt(userAnswer/rightAnswer)
+// var timeout = setTimeout( clearInterval);
+// var setInterval = 60000;
+// var secondsDisplay = document.querySelector("seconds");
+// var answerButton = document.createElement("button")
+// var seconds = Math.floor(( (1000 * 60)) / 1000);;
+// var secondsLeft = 60;
+// var BeginE1 = document.querySelector("#display");
+// var userAnswer = document.getElementById("userAnswer");
+// var scoreE1 = document.querySelector("#score");
+// var counter= document.getElementById("counter").innerHTML =  seconds + "seconds ";
+// window.debugVar = questions;
+// score = parseInt(userAnswer/rightAnswer)
+
+//What data we need to make this work.
+//1. Timer and ability to decrement it every second.
+//2. A list of questions and answers, etc.
+//3. A way to tell what the current question is.
+//4. count of correct answers
+var timer = 120;
+var timerInterval = setInterval(updateTimer, 1000);
+var currentQuestionIndex = 0;
+var correctAnswerCount = 0;
+
+//selectors in the dom
+var timerEl = document.getElementById("counter");
+var questionTitle = document.getElementById('question-title');
+var begin = document.getElementById('begin');
+var a = document.getElementById('a');
+var b = document.getElementById('b');
+var c = document.getElementById('c');
+var d = document.getElementById('d');
+
+//What actions do we need.
+//1. fun change the timer value and print it to the screen.ction to
+//2. function to take the current question and print it to the screen.
+//3. function to check a user's answer and see if it's correct.
+//4. event handlers to call the answre check when a answer is clicked.
+
 var questions = [{
-  "q1": "Mustang Shelby debuted in what Year?",
-  a1: "1968,",
-  b1: "1998,",
-  c1: "1940,",
-  d1: "1965,",
-  rightAnswer: "1965",
-  userAnswer: null,
+  q: "Mustang Shelby debuted in what Year?",
+  a: "1968,",
+  b: "1998,",
+  c: "1940,",
+  d: "1965,",
+  rightAnswer: 'd',
+},
+
+{
+  q: "Winston Churchill was a leader in what country ?",
+  a: "Germany",
+  b: "Britain",
+  c: "Russia",
+  d: "UAE",
+  rightAnswer: 'b',
 
 },
 
 {
-  "q2": "Winston Churchill was a leader in what country ?",
-  a2: "Germany",
-  b2: "Britain",
-  c2: "Russia",
-  d2: "UAE",
-  rightAnswer: "Britain",
-  userAnswer: null,
+  q: "Denmark Vesey was a Slave in what state ?",
+  a: "South Carolina",
+  b: "Texas",
+  c: "Tennesee",
+  d: "Bermuda",
+  rightAnswer: "a",
+
 },
 
 {
-  "q3": "Denmark Vesey was a Slave in what state ?",
-  a3: "South Carolina",
-  b3: "Texas",
-  c3: "Tennesee",
-  d3: "Bermuda",
-  rightAnswer: "South Carolina",
-  userAnswer: null,
+  q: "Rev. Joseph Simmons is part on what legendary musical group?",
+  a: "Milli Vanilli",
+  b: "The Wu-tang",
+  c: "RUN DMC",
+  d: "Crush Groove",
+  rightAnswer: "c",
+
 },
 
 {
-  "q4": "Rev. Joseph Simmons is part on what legendary musical group?",
-  a4: "Milli Vanilli",
-  b4: "The Wu-tang",
-  c4: "RUN DMC",
-  d4: "Crush Groove",
-  rightAnswer: "RUN DMC",
-  userAnswer: null,
+  q: "Andre Benjamin is part on what legendary musical group?",
+  a: "OutKast",
+  b: "The Backstreet boys",
+  c: "Hootie and the Blowfish",
+  d: "Nickelback",
+  rightAnswer: "a",
+
 },
 
 {
-  "q5": "Andre Benjamin is part on what legendary musical group?",
-  a5: "OutKast",
-  b5: "The Backstreet boys",
-  c5: "Hootie and the Blowfish",
-  d5: "Nickelback",
-  rightAnswer: "OutKast",
-  userAnswer: null,
-},
+  q: "This 80's show featured a talking car?",
+  a: "Walker Texas Ranger",
+  b: "The Renegade",
+  c: "C.H.I.P.S.",
+  d: "Night Rider",
+  rightAnswer: "d",
 
-{
-  "q6": "This 80's show featured a talking car?",
-  a6: "Walker Texas Ranger",
-  b6: "The Renegade",
-  c6: "C.H.I.P.S.",
-  d6: "Night Rider",
-  rightAnswer: "Night Rider",
-  userAnswer: null,
 }];
-// var choices = [{"c1": a,"1968": b,"1998": c,"1940": d,"1965":} ,{'c2': a,"Germany" : b, "Britain": c, "Russia": d, "UAE":,} { 'c3': a, "South Carolina",
-// b, "Texas": c, "Tennesee": d, "Bermuda":},{ 'c4': a, "Milli Vanilli":b, "The Wu-tang":c, "RUN DMC": d, "Crush Groove":},{'c5': a, "OutKast": b, "The Backstreet boys":
-// c, "Hootie and the Blowfish": d, "Nickelback":},{'c5': a, "Walker Texas Ranger": b, "The Renegade": c, "C.H.I.P.S.":d, "Night Rider":}];
 
-var rightAnswer = ["1965","Britain","South Carolina","RUN DMC","OutKast","Night Rider",];
+function updateTimer() {
+  timerEl.innerHTML = `${timer} seconds left.`
+  timer = timer - 1;
+}
+document.addEventListener("begin",function(){})
+function displayCurrentQuestion() {
+console.log("HEY THERE I WORK");
+  questionTitle.innerHTML = questions[currentQuestionIndex].q ;
+  a.innerHTML = questions[currentQuestionIndex].a
+  b.innerHTML = questions[currentQuestionIndex].b
+  c.innerHTML = questions[currentQuestionIndex].c
+  d.innerHTML = questions[currentQuestionIndex].d
+} 
+
+  
+  
+  //you'll have to do something similiar with each answer.
+
+
+  //add a to the dom..
+questionTitle.append = questions[currentQuestionIndex].q ;
+  a.append = questions[currentQuestionIndex].a
+  b.append = questions[currentQuestionIndex].b
+  c.append = questions[currentQuestionIndex].c
+  d.append = questions[currentQuestionIndex].d
+  ///add b to the dom.
+
+  displayCurrentQuestion()
+function checkAnswer(userAnswer) {
+  //compare user answer to current question right answer.
+  if (userAnswer === questions[currentQuestionIndex].rightAnswer);
+  correctAnswerCount ++;
+  currentQuestionIndex ++;
+
+  elseif(userAnswer !== currentQuestionIndex.rightAnswer);
+  correctAnswerCount ;
+  currentQuestionIndex ++;
+  setInterval(updateTimer, 4000);
+
+
+  
+  //increment correctAnswerCount if they are the same.
+  correctAnswerCount ++;
+  //increment currentQuestionIndex by 1
+  //call display currentQuestion
+  
+
+
+begin.addEventListener('click', () => { displayCurrentQuestion('q') })
+
+
+a.addEventListener('click', () => { checkAnswer('a') })
+
+
+b.addEventListener('click', () => { checkAnswer('b') })
+
+
+c.addEventListener('click', () => { checkAnswer('c') })
+
+
+d.addEventListener('click', () => { checkAnswer('d') })
+// do this for b, c, d
+
+}
+
 
 //  logic functions
-Begin.addEventListener("click", function (event) {
-  
-  console.log("rollQuestions functions rolls after this")
+// Begin.addEventListener("click", function (event) {
 
-  function rollQuestions() {};
-    // console.log(questions);start question display
+//   console.log("rollQuestions functions rolls after this")
 
-  // console.log(event);
-   $("li").append(questions[i])
-  for (var i = 0; i < questions.length; i++) {
-     console.log(questions[i].q);
+//   function rollQuestions() { };
+//   // console.log(questions);start question display
 
-     $('li').append(questions[i].q1);
-     $('li').append(questions[i].a1)
-     $('li').append(questions[i].b1)
-     $('li').append(questions[i].c1)
-     $('li').append(questions[i].d1)
+//   // console.log(event);
+//   $("li").append(questions[i])
+//   for (var i = 0; i < questions.length; i++) {
+//     console.log(questions[i].q);
 
-     userAnswer= addEventListener( "click", );
-
-       $('li').append(questions[i].q2);
-     $('li').append(questions[i].a2)
-     $('li').append(questions[i].b2)
-     $('li').append(questions[i].c2)
-     $('li').append(questions[i].d2)
-
-     userAnswer= addEventListener("click" ,);
-
-     
-     $('li').append(questions[i].q3);
-     $('li').append(questions[i].a3)
-     $('li').append(questions[i].b3)
-     $('li').append(questions[i].c3)
-     $('li').append(questions[i].d3)
-
-    // var userAnswer = $('li').append(questions);
-    // if (userAnswer !== rightAnswer) { 
-    //   seconds --
-    //   alert("sorry")
-    // }
-    // console.log(userAnswer);
-    document.getElementById("question-container"),
+//     $('li').append(questions[i].q1);
+//     $('li').append(questions[i].a1);
+//   }})
  
 
-  // };
-  //  Compare answers
-  function Compare() {
-    if (userAnswer === rightAnswer === "right") {
-      //  Increase score
-      score++;
-      alert("Correct!");
-
-
-    }
-    else {
-      alert("Wrong!");
-      --secondsLeft ; 15;
-    }
-
-  
-    // // Show total at end
-    alert("You got " + score + "/" + questions.length);
-    function score() { }
-    // console.log(questions[questionIndex]);
-
-    // questions.textContent = question;
-    function display() {
-      secondsDisplay = (totalSeconds - secondsElapsed)
-      if (userAnswer !== answer) {
-        totalSeconds - 10000
-      }
-    }
-  };
-
-  //  This function retrieves the values from the html input elements; 
-
-  function gameOver() {
-    secondsLeft--;
-    secondsElapsed.textContent = secondsLeft + " seconds left until Quiz over";
-
-    if (secondsLeft === 0) {
-      clearInterval(timerInterval);
-      sendMessage();
-    }
-
-  } 60000;
-
-// This function does 2 things. displays the time and checks to see if time is up.
-  function renderTime() {
-    // When renderTime is called it sets the textContent for the timer html...
-    secondsDisplay.textContent = getFormattedSeconds();
-
-    // ..and then checks to see if the time has run out
-    if (secondsElapsed >= totalSeconds) {
-      if (status === "Keep going") {
-        alert("Quiz Master!");
-      } else {
-        alert("AWWW so sorry, try again!");
-      }
-
-      stopTimer();
-    }
-  }
-
-  // This function is where the "time" aspect of the timer runs
-  // Notice no settings are changed other than to increment the secondsElapsed var
-  function startTimer() {
-    document.getElementById("#counter").style.display = "block";
-    document.getElementById("#begin").style.display = "none";
-    // function to display function, 
-      setTime(60000);
-  }
-  // We only want to start the timer if totalSeconds is > 0
-  if (seconds > 60) {
-    /* The "interval" variable here using "setInterval()" begins the recurring increment of the
-       secondsElapsed variable which is used to check if the time is up */
-    interval = setInterval(function () {
-      seconds--;
-
-      // So renderTime() is called here once every second.
-      renderTime();
-    }, 60000);
-  } else
-    alert("You lost time.")
-  }})
-
-;
 
 
 
-
-
-// })}
