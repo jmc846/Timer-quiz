@@ -1,15 +1,5 @@
 // Global variables
-// var timeout = setTimeout( clearInterval);
-// var setInterval = 60000;
-// var secondsDisplay = document.querySelector("seconds");
-// var answerButton = document.createElement("button")
-// var seconds = Math.floor(( (1000 * 60)) / 1000);;
-// var secondsLeft = 60;
-// var BeginE1 = document.querySelector("#display");
-// var userAnswer = document.getElementById("userAnswer");
-// var scoreE1 = document.querySelector("#score");
-// var counter= document.getElementById("counter").innerHTML =  seconds + "seconds ";
-// window.debugVar = questions;
+
 // score = parseInt(userAnswer/rightAnswer)
 
 //What data we need to make this work.
@@ -21,7 +11,7 @@ var timer = 120;
 var timerInterval = setInterval(updateTimer, 1000);
 var currentQuestionIndex = 0;
 var correctAnswerCount = 0;
-
+var userAnswer= document.querySelector('#useranswer')
 //selectors in the dom
 var timerEl = document.getElementById("counter");
 var questionTitle = document.getElementById('question-title');
@@ -100,72 +90,49 @@ function updateTimer() {
   timerEl.innerHTML = `${timer} seconds left.`
   timer = timer - 1;
 }
-document.addEventListener("begin",function(){})
+document.addEventListener("begin",function(){})  //add a to the dom..
 function displayCurrentQuestion() {
 console.log("HEY THERE I WORK");
   questionTitle.innerHTML = questions[currentQuestionIndex].q ;
+  
   a.innerHTML = questions[currentQuestionIndex].a
+  a.addEventListener('click', () => { checkAnswer('a') })
+   
   b.innerHTML = questions[currentQuestionIndex].b
+  b.addEventListener('click', () => { checkAnswer('b') })
+  console.log("HEY THERE I WORK TOO")
   c.innerHTML = questions[currentQuestionIndex].c
+  c.addEventListener('click', () => { checkAnswer('c') })
+
   d.innerHTML = questions[currentQuestionIndex].d
+  d.addEventListener('click', () => { checkAnswer('d') })
 } 
  
   //
+displayCurrentQuestion()
 
 
-  //add a to the dom..
-questionTitle.append = questions[currentQuestionIndex].q ;
-begin.addEventListener('click', () => { displayCurrentQuestion('q') })
 
-//   a.append = questions[currentQuestionIndex].a
-//  $('.userAnswer').addEventListener('click', () => { checkAnswer('a') })
-
-  // // userAnswer.addEventListener(
-  // b.append = questions[currentQuestionIndex].b
-  // userAnswer.addEventListener('click', () => { checkAnswer('b') })
-
-  // c.append = questions[currentQuestionIndex].c
-  // userAnswer.addEventListener('click', () => { checkAnswer('c') })
-
-  // d.append = questions[currentQuestionIndex].d
-  // userAnswer.addEventListener('click', () => { checkAnswer('d') })
-  // ///add b to the dom.
-
-  displayCurrentQuestion()
+//call display currentQuestion
 function checkAnswer(userAnswer) {
   //compare user answer to current question right answer.
-  if (userAnswer === questions[currentQuestionIndex].rightAnswer);
-  correctAnswerCount ++
-  currentQuestionIndex ++
+  if (document.querySelector('#userAnswer') === questions[currentQuestionIndex].q.rightAnswer){
+  correctAnswerCount ++ ;  
+  //increment correctAnswerCount if they are the same.
+  currentQuestionIndex ++;
+  //increment currentQuestionIndex by 1
+  } else (document.querySelector('#userAnswer') !== questions[currentQuestionIndex].q.rightAnswer);{
+   currentQuestionIndex ++;
+   timer -10
+     
+   }
+  setInterval(updateTimer, 4000);
 
-  //   if (userAnswer !== currentQuestionIndex.rightAnswer);
-  // correctAnswerCount 
-  // currentQuestionIndex ++
-  // setInterval(updateTimer, 4000);
 
 
   
-  //increment correctAnswerCount if they are the same.
-  correctAnswerCount ++;
-  //increment currentQuestionIndex by 1
-  //call display currentQuestion
 }
-  checkAnswer();
-
-// begin.addEventListener('click', () => { displayCurrentQuestion('q') })
-
-
-// a.addEventListener('click', () => { checkAnswer('a') })
-
-
-// b.addEventListener('click', () => { checkAnswer('b') })
-
-
-// c.addEventListener('click', () => { checkAnswer('c') })
-
-
-// d.addEventListener('click', () => { checkAnswer('d') })
-// // 
+checkAnswer()
 
 
 

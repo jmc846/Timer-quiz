@@ -1,11 +1,8 @@
 .wrapper {
     display: grid;
     grid-template-columns: 3fr 3fr 3fr;
-    grid-template-rows: 100px 100px;
+    grid-template-rows: 50px 50px;
   }
-
-
-
 
 
 body {
@@ -16,7 +13,20 @@ body {
     
 }  
 
-
+#begin{
+margin-left: 400px;
+margin-top: 250px;
+size: 400px;
+height: 200px;
+width: 250px;
+font-size: 75px;
+color: rgba(43, 114, 43, 0.959);
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-style: italic;
+border-radius: 75px;
+box-shadow:rgba(43, 114, 43, 0.959) 15px 15px 8px 0px;  
+    color: hsl(142, 89%, 22%);
+}
 
 .container {
     display: block;
@@ -25,7 +35,7 @@ body {
 }
 
 .counter{
-height: 100px;
+height: 50px;
 width: 150px;
 opacity: 20%;
 
@@ -37,14 +47,14 @@ opacity: 20%;
     background-color: hsl(0, 0%, 100%);
     border-radius: 150px;
     border-width: 15px;
-    height: 650px;
-    box-shadow: rgba(194, 6, 6, 0.767) 0px 2px 8px 0px;
+    height: 350px;
+    box-shadow:rgba(43, 114, 43, 0.959) 15px 15px 8px 0px;  
     color: hsl(142, 89%, 22%);
     font-size: 25px;
     margin: 25 px;
     max-width: 800px;
     padding: 30px 40px;
-    height: 1250px;
+    height: 450px;
   }
   
   .card-header::after {
@@ -53,6 +63,12 @@ opacity: 20%;
     width: 100%;
     background: #e7ebe9;
     height: 2px;
+  }
+  .display{
+ 
+color: rgba(43, 114, 43, 0.959);
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-style: italic;
   }
 
   #timer {
@@ -91,3 +107,12 @@ opacity: 20%;
     display: block;
     clear: both;
   };
+
+  .useranswer{
+
+   
+    color: rgba(43, 114, 43, 0.959);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+
+  }
