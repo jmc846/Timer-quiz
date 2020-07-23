@@ -11,6 +11,7 @@ var timer = 120;
 var timerInterval = setInterval(updateTimer, 1000);
 var currentQuestionIndex = 0;
 var correctAnswerCount = 0;
+var wrongAnswerCount = 0;
 var userAnswer= document.querySelector('#useranswer')
 //selectors in the dom
 var timerEl = document.getElementById("counter");
@@ -86,6 +87,13 @@ var questions = [{
 
 }];
 
+document.addEventListener("score",function(){})  //add a to the dom..
+function generateScore() {
+console.log("HEY THERE I WORK");
+showscore.innerHTML= correctAnswerCount/wrongAnswerCount
+
+
+}
 function updateTimer() {
   timerEl.innerHTML = `${timer} seconds left.`
   timer = timer - 1;
@@ -116,23 +124,27 @@ displayCurrentQuestion()
 //call display currentQuestion
 function checkAnswer(userAnswer) {
   //compare user answer to current question right answer.
-  if (document.querySelector('#userAnswer') === questions[currentQuestionIndex].q.rightAnswer){
+  if (document.querySelector('#userAnswer') === questions[currentQuestionIndex].rightAnswer){
   correctAnswerCount ++ ;  
   //increment correctAnswerCount if they are the same.
   currentQuestionIndex ++;
   //increment currentQuestionIndex by 1
-  } else (document.querySelector('#userAnswer') !== questions[currentQuestionIndex].q.rightAnswer);{
+  } else (document.querySelector('#userAnswer') !== questions[currentQuestionIndex].rightAnswer);{
+    wrongAnswerCount 
    currentQuestionIndex ++;
    timer -10
      
    }
+   displayCurrentQuestion();
+
+  
   setInterval(updateTimer, 4000);
 
 
-
+  generateScore();
   
 }
-checkAnswer()
+
 
 
 
