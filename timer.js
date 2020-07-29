@@ -9,6 +9,7 @@
 //4. count of correct answers
 var timer = 120;
 var timerInterval = setInterval(updateTimer, 1000);
+var timerExpired = setTimeout(generateScore,0000);
 var currentQuestionIndex = 0;
 var correctAnswerCount = 0;
 var wrongAnswerCount = 0;
@@ -90,13 +91,14 @@ var questions = [{
 document.addEventListener("score",function(){})  //add a to the dom..
 function generateScore() {
 console.log("HEY THERE I WORK");
-showscore.innerHTML= correctAnswerCount/wrongAnswerCount
+showscore.innerHTML= `${correctAnswerCount/wrongAnswerCount} score. `
 
 
 }
 function updateTimer() {
   timerEl.innerHTML = `${timer} seconds left.`
   timer = timer - 1;
+  
 }
 document.addEventListener("begin",function(){})  //add a to the dom..
 function displayCurrentQuestion() {
@@ -105,6 +107,7 @@ console.log("HEY THERE I WORK");
   
   a.innerHTML = questions[currentQuestionIndex].a
   a.addEventListener('click', () => { checkAnswer('a') })
+  
    
   b.innerHTML = questions[currentQuestionIndex].b
   b.addEventListener('click', () => { checkAnswer('b') })
@@ -118,26 +121,27 @@ console.log("HEY THERE I WORK");
  
   //
 displayCurrentQuestion()
-
+updateTimer()
 
 
 //call display currentQuestion
 function checkAnswer(userAnswer) {
   //compare user answer to current question right answer.
-  if (document.querySelector('#userAnswer') === questions[currentQuestionIndex].rightAnswer){
+  if (userAnswer === questions[currentQuestionIndex].rightAnswer){
   correctAnswerCount ++ ;  
+  console.log(currentQuestionIndex)
   //increment correctAnswerCount if they are the same.
-  currentQuestionIndex ++;
+  currentQuestionIndex += 1;
   //increment currentQuestionIndex by 1
-  } else (document.querySelector('#userAnswer') !== questions[currentQuestionIndex].rightAnswer);{
-    wrongAnswerCount 
-   currentQuestionIndex ++;
+  } else {
+    wrongAnswerCount  ++;
+   currentQuestionIndex += 1;
    timer -10
      
    }
    displayCurrentQuestion();
 
-  
+  // checkAnswer()
   setInterval(updateTimer, 4000);
 
 
