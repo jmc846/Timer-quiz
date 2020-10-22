@@ -5,7 +5,7 @@ As you proceed in your career as a web developer, you will probably be asked to 
 ## User Story
 
 ```
-AS A coding bootcamp student
+
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
 ```
@@ -28,7 +28,7 @@ THEN I can save my initials and score
 
 The following animation demonstrates the application functionality:
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+![code quiz](https://media.giphy.com/media/HH7nZYCJ4ozKq31NWU/giphy.gif)
 
 ### Review
 
@@ -39,4 +39,3 @@ You are required to submit the following for review:
 * The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 
 - - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
