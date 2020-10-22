@@ -7,21 +7,48 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./timer.js " defer></script>
 </head>
-<body>
-    
+<body>    
 <div class="container">
 <div class="clearfix">  
- <a href="./timer.html"><button class="Begin-jumbo" id="begin" >Start Quiz</button></a>
-
-
-<li> 
-
-</li>
+ <button class="Begin-jumbo" id="begin" >Start Quiz</button>
 </div>
     </div>
+    <div id="quiz" class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-2 Timer card">
 
+                <div class="card-header">
+                    <h2>TEST YOUR KNOWLEDGE</h2>
+                    <h1><span id="seconds-left"></span></h1>
 
-    <script src="./timer.js"></script>
+                    <p id="timer"></p>
+                    <div id="counter"></div>
+
+                    <div class="card-body">
+                        <div id="question-container" class="display">
+                            <div id="col-lg-4"></div>
+
+                            <div id="question-title"></div>
+                            <button id="a" class="useranswer">Option A</button>
+                            <button id="b" class="useranswer">Option B</button>
+                            <button id="c" class="useranswer">Option C</button>
+                            <button id="d" class="useranswer">Option D</button>                          
+
+                                <footer>
+                            <div class="card-footer"> </div>
+                            <button id="score" class="btn">Generate SCORE</button>
+                            <div id="showscore"></div>
+                        </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+   
 </body>
 </html>
